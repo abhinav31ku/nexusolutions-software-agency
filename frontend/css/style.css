@@ -1,0 +1,159 @@
+/* ===== Colors and basic settings (change them here) ===== */
+:root {
+  --navy: #12263f;
+  --accent: #ff7a1a;
+  --accent-dark: #e0640a;
+  --text: #2b3645;
+  --muted: #5f6b7a;
+  --light: #f7f9fc;
+  --border: #dde4ee;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, Helvetica, sans-serif; color: var(--text); background: var(--light); line-height: 1.6; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { color: var(--navy); line-height: 1.25; }
+h1 { font-size: 2.6rem; }
+h2 { font-size: 1.9rem; margin-bottom: 10px; }
+h3 { font-size: 1.15rem; margin-bottom: 6px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.container { width: 90%; max-width: 1100px; margin: 0 auto; }
+.section { padding: 60px 0; }
+.section-white { background: #fff; }
+.section-title { margin-bottom: 30px; }
+.subtitle { color: var(--muted); }
+
+/* ===== Buttons ===== */
+.btn-primary, .btn-outline {
+  display: inline-block; padding: 12px 24px; border-radius: 4px; font-size: 1rem; font-weight: bold;
+  text-decoration: none; cursor: pointer; border: 2px solid var(--accent);
+  transition: transform 0.15s, background 0.15s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
+.btn-outline:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
+
+/* ===== Navigation bar ===== */
+.navbar { background: var(--navy); }
+.navbar .container { display: flex; justify-content: space-between; align-items: center; min-height: 64px; }
+.logo { color: #fff; font-size: 1.4rem; font-weight: bold; text-decoration: none; }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+.nav-links a { color: #d5deea; text-decoration: none; }
+.nav-links a:hover, .nav-links a.active { color: #fff; border-bottom: 2px solid var(--accent); }
+.nav-links a.nav-button { background: var(--accent); color: #fff; padding: 8px 16px; border-radius: 4px; border: none; }
+.menu-button { display: none; background: none; color: #fff; border: 1px solid #5a7090; padding: 6px 12px; cursor: pointer; }
+
+/* ===== Home: welcome section ===== */
+.welcome { background: #fff; padding: 70px 0; border-bottom: 1px solid var(--border); }
+.welcome .container { display: flex; align-items: center; gap: 40px; }
+.welcome-text { flex: 1; }
+.welcome-text p { margin: 16px 0 26px; color: var(--muted); font-size: 1.1rem; }
+.welcome-image { flex: 1; }
+.button-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ===== Service cards ===== */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+.service-card { background: #fff; padding: 24px; border: 1px solid var(--border); border-top: 4px solid var(--accent); box-shadow: 0 2px 6px rgba(18, 38, 63, 0.08); }
+.service-card img { width: 48px; margin-bottom: 14px; }
+.service-card p { color: var(--muted); font-size: 0.95rem; }
+
+/* ===== Why choose us (dark section, different from the cards) ===== */
+.why-us { background: var(--navy); color: #d5deea; }
+.why-us h2 { color: #fff; }
+.why-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px 40px; margin-top: 24px; }
+.why-list li { padding-left: 28px; position: relative; }
+.why-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+.why-list strong { color: #fff; display: block; }
+
+.cta-strip { background: var(--accent); color: #fff; padding: 40px 0; }
+.cta-strip .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.cta-strip h2 { color: #fff; margin: 0; }
+.cta-strip .btn-primary { background: var(--navy); border-color: var(--navy); }
+
+/* ===== Footer ===== */
+.footer { background: #0b1828; color: #9fb0c6; padding: 30px 0; font-size: 0.9rem; }
+.footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer a { color: #d5deea; margin-left: 14px; }
+
+/* ===== Page title banner (inner pages) ===== */
+.page-banner { background: #fff; padding: 40px 0; border-bottom: 1px solid var(--border); }
+
+/* ===== Services page rows ===== */
+.service-row { display: flex; align-items: center; gap: 30px; padding: 30px 0; border-bottom: 1px solid var(--border); }
+.service-row:nth-child(even) { flex-direction: row-reverse; }
+.service-row img { width: 90px; flex: none; background: #fff; border: 1px solid var(--border); padding: 18px; }
+.service-row div { flex: 1; }
+.service-row p { color: var(--muted); margin: 6px 0 14px; }
+
+/* ===== About page ===== */
+.about-intro { display: flex; gap: 40px; align-items: center; }
+.about-intro > * { flex: 1; }
+.two-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.info-box { background: #fff; padding: 24px; border-left: 4px solid var(--accent); box-shadow: 0 2px 6px rgba(18, 38, 63, 0.08); }
+.process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: step; }
+.process div { border-top: 3px solid var(--navy); padding-top: 12px; counter-increment: step; }
+.process div::before { content: "Step " counter(step); color: var(--accent-dark); font-weight: bold; font-size: 0.9rem; }
+.process p { color: var(--muted); font-size: 0.95rem; }
+
+/* ===== Projects page ===== */
+.filter-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+.filter-buttons button { padding: 8px 18px; border: 1px solid var(--navy); background: #fff; color: var(--navy); cursor: pointer; border-radius: 4px; }
+.filter-buttons button.active { background: var(--navy); color: #fff; }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.project-card { background: #fff; border: 1px solid var(--border); box-shadow: 0 2px 6px rgba(18, 38, 63, 0.08); transition: transform 0.15s; }
+.project-card:hover { transform: translateY(-4px); }
+.project-image { background: var(--navy); padding: 30px; }
+.project-image img { width: 70px; margin: 0 auto; background: #fff; padding: 10px; border-radius: 4px; }
+.project-info { padding: 20px; }
+.project-info p { color: var(--muted); font-size: 0.95rem; }
+.demo-label { display: inline-block; background: #fff1e6; color: var(--accent-dark); font-size: 0.8rem; font-weight: bold; padding: 2px 8px; margin-bottom: 8px; }
+.note { margin-top: 24px; color: var(--muted); font-size: 0.9rem; }
+
+/* ===== Login page and the PHP pages (forms) ===== */
+.login-page { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 0; }
+.login-page .logo { color: var(--navy); margin-bottom: 20px; }
+.page-content { width: 90%; max-width: 1100px; margin: 0 auto; padding: 40px 0; }
+.auth-card, .login-box, .booking-container, .contact-container { background: #fff; border: 1px solid var(--border); padding: 30px; width: 100%; max-width: 440px; margin: 20px auto; box-shadow: 0 2px 6px rgba(18, 38, 63, 0.08); }
+.booking-container, .contact-container { max-width: 620px; }
+.login-box label, .auth-form label, .service-form label, .contact-form label { display: block; font-weight: bold; font-size: 0.9rem; margin: 14px 0 4px; }
+.login-box input, .auth-form input, .service-form textarea, .contact-form textarea, .contact-form select {
+  width: 100%; padding: 10px; border: 1px solid #b6c0ce; border-radius: 4px; font-size: 1rem; font-family: inherit; }
+.login-box input.input-error { border-color: #b42318; }
+.password-box { position: relative; }
+.password-box button { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--accent-dark); font-weight: bold; cursor: pointer; padding: 6px; }
+.error-text { color: #b42318; font-size: 0.85rem; min-height: 18px; }
+.alert { padding: 10px 12px; border-radius: 4px; margin: 14px 0; }
+.alert.error { background: #fef3f2; color: #b42318; border: 1px solid #f3b4ae; }
+.alert.success { background: #ecfdf3; color: #067647; border: 1px solid #abefc6; }
+.login-box .btn-primary, .auth-form .btn-primary { width: 100%; margin-top: 18px; }
+.btn-primary.full-width { width: 100%; }
+.small-text, .auth-footer-text { margin-top: 16px; font-size: 0.9rem; color: var(--muted); }
+.small-text a, .auth-footer-text a, .link-secondary, .card-link { color: var(--accent-dark); font-weight: bold; }
+.link-secondary { margin-left: 12px; }
+.user-badge { background: var(--light); padding: 8px 12px; margin-bottom: 12px; }
+.feature-list { padding-left: 20px; color: var(--muted); }
+.service-details { max-width: 620px; margin: 0 auto 10px; }
+.auth-prompt { text-align: center; }
+.hero-section .cta-group { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
+.btn-secondary { background: none; border: 2px solid var(--navy); padding: 10px 20px; border-radius: 4px; font-weight: bold; }
+.service-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; margin-top: 20px; }
+.card { background: #fff; border: 1px solid var(--border); border-top: 4px solid var(--accent); padding: 20px; }
+
+/* ===== Small screens ===== */
+@media (max-width: 800px) {
+  h1 { font-size: 2rem; }
+  .welcome .container, .about-intro, .service-row, .service-row:nth-child(even) { flex-direction: column; text-align: left; align-items: flex-start; }
+  .two-boxes, .process { grid-template-columns: 1fr; }
+  .menu-button { display: block; }
+  .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy); flex-direction: column; align-items: flex-start; padding: 16px 5%; z-index: 10; }
+  .nav-links.open { display: flex; }
+  .navbar { position: relative; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* ===== Payment page ===== */
+.qr-box { width: 220px; margin: 0 auto 10px; padding: 10px; background: #fff; border: 1px solid var(--border); }
+.qr-box svg { width: 100%; height: auto; display: block; }
