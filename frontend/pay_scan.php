@@ -21,9 +21,9 @@ if ($inquiry && isset($_POST['pay_now']) && !$done) {
 ?>
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pay | Nexusolutions</title><link rel="stylesheet" href="css/style.css"></head>
+<title>Pay | Nexusolutions</title><link rel="stylesheet" href="css/style.css?v=4"></head>
 <body><main class="login-page">
-  <a href="index.html" class="logo">Nexu<span>solutions</span></a>
+  <a href="index.php" class="logo">Nexu<span>solutions</span></a>
   <div class="login-box" style="text-align:center">
   <?php if (!$inquiry): ?>
     <h2>Link not valid</h2><p class="subtitle">This payment link is wrong or has expired.</p>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../backend/session.php';
 include '../backend/db.php';
 include 'includes/pricing.php';
 
@@ -13,7 +13,7 @@ if (isset($_POST['submit_inquiry'])) {
         $clientName = $_SESSION['username'];
         $clientEmail = $_SESSION['email'];
         $clientContact = $_SESSION['contact_no'];
-        $serviceType = "Web Development";
+        $serviceType = "Website Development";
         $projectMessage = trim($_POST['message']);
 
         if (!empty($projectMessage)) {
@@ -88,7 +88,7 @@ include 'includes/header.php';
         <?php else: ?>
             <div class="auth-prompt">
                 <p>You must be logged in to book this service.</p>
-                <a href="login.php" class="btn-primary">Login to Book</a>
+                <a href="login.html?next=webdev.php" class="btn-primary">Login to Book</a>
                 <a href="register.php" class="link-secondary">Create Account</a>
             </div>
         <?php endif; ?>

@@ -1,1 +1,7 @@
-DirectoryIndex index.html index.php
+DirectoryIndex index.php index.html
+
+# Old bookmarks: the pages are now PHP so they share ONE navbar.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(index|about|services|projects)\.html$ $1.php [R=301,L]
+</IfModule>

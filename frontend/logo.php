@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../backend/session.php';
 include '../backend/db.php';
 include 'includes/pricing.php';
 
@@ -88,7 +88,7 @@ include 'includes/header.php';
         <?php else: ?>
             <div class="auth-prompt">
                 <p>You must be logged in to book this service.</p>
-                <a href="login.php" class="btn-primary">Login to Book</a>
+                <a href="login.html?next=logo.php" class="btn-primary">Login to Book</a>
                 <a href="register.php" class="link-secondary">Create Account</a>
             </div>
         <?php endif; ?>

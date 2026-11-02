@@ -1,5 +1,5 @@
 <?php
-session_start();
+include 'session.php';
 
 $isLoggedIn = isset($_SESSION['role']);
 $isAdministrator = $isLoggedIn && ($_SESSION['role'] === 'admin');

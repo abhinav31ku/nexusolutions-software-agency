@@ -157,3 +157,21 @@ h3 { font-size: 1.15rem; margin-bottom: 6px; }
 /* ===== Payment page ===== */
 .qr-box { width: 220px; margin: 0 auto 10px; padding: 10px; background: #fff; border: 1px solid var(--border); }
 .qr-box svg { width: 100%; height: auto; display: block; }
+
+/* ===== Navigation: links + profile button on the right ===== */
+.nav-right { display: flex; align-items: center; gap: 24px; }
+
+/* ===== Profile button (circle with icon) and dropdown ===== */
+.account { position: relative; }
+.profile-button { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: var(--navy); border: 2px solid #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; transition: transform 0.15s, box-shadow 0.15s; }
+.profile-button:hover { transform: scale(1.08); }
+.profile-button[aria-expanded="true"] { box-shadow: 0 0 0 4px rgba(255, 122, 26, 0.45); }
+.profile-icon { display: block; }
+.profile-menu { position: absolute; right: 0; top: calc(100% + 12px); width: min(250px, 80vw); background: #fff; border: 1px solid var(--border); border-radius: 4px; box-shadow: 0 6px 18px rgba(18, 38, 63, 0.18); padding: 14px; z-index: 30; }
+.profile-menu[hidden] { display: none; }
+.profile-name { font-weight: bold; color: var(--navy); }
+.profile-email { color: var(--muted); font-size: 0.9rem; word-break: break-all; margin-bottom: 10px; }
+.profile-menu a { display: block; padding: 8px 0; color: var(--navy); text-decoration: none; border-top: 1px solid var(--border); }
+.profile-menu a:hover { color: var(--accent-dark); }
+.profile-menu a.profile-logout { color: #b42318; font-weight: bold; }
+@media (max-width: 800px) { .nav-right { gap: 12px; } }

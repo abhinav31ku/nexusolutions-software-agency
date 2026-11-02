@@ -8,7 +8,38 @@ if (menuButton) {
   });
 }
 
-// ===== 2. Project filters (projects.html) =====
+// ===== 1b. Profile button + dropdown =====
+var accountItem = document.getElementById("account-item");
+var profileButton = document.getElementById("profile-button");
+var profileMenu = document.getElementById("profile-menu");
+
+function showProfileMenu(show) {
+  profileMenu.hidden = !show;
+  profileButton.setAttribute("aria-expanded", show);
+}
+
+// The navbar (including Login vs Profile) is drawn by PHP in includes/header.php, the same
+// for every page, from the PHP session. JavaScript only opens and closes the dropdown.
+if (accountItem && profileButton && profileMenu) {
+  // open / close when the circle is clicked
+  profileButton.addEventListener("click", function (event) {
+    event.stopPropagation();
+    showProfileMenu(profileMenu.hidden);
+  });
+  // close when an option inside the menu is chosen
+  profileMenu.addEventListener("click", function (event) {
+    if (event.target.tagName === "A") { showProfileMenu(false); }
+  });
+  // close when clicking anywhere else, or pressing Escape
+  document.addEventListener("click", function (event) {
+    if (!accountItem.contains(event.target)) { showProfileMenu(false); }
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") { showProfileMenu(false); }
+  });
+}
+
+// ===== 2. Project filters (projects.php) =====
 var filterButtons = document.querySelectorAll(".filter-buttons button");
 var projectCards = document.querySelectorAll(".project-card");
 
@@ -107,7 +138,13 @@ if (loginForm) {
       .then(function (response) {
         // login.php redirects to another page when the login works
         if (response.redirected && response.url.indexOf("login.php") === -1) {
-          window.location.href = response.url;
+          // If we came from another page (login.html?next=contact.php), go back there.
+          var next = new URLSearchParams(window.location.search).get("next");
+          var target = response.url;
+          if (next && /^[a-z]+\.php$/.test(next) && response.url.indexOf("admin.php") === -1) {
+            target = next;
+          }
+          window.location.href = target;
           return;
         }
         // otherwise read its error message

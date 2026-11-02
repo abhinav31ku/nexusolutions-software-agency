@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../backend/session.php';
 include '../backend/db.php';
 
 $successMessage = "";

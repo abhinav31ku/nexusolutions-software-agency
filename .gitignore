@@ -1,0 +1,12 @@
+# Windows / Mac
+Thumbs.db
+.DS_Store
+# Editors
+.vscode/
+.idea/
+# Logs and temp files
+*.log
+*.tmp
+
+# PHP session files
+backend/sessions/sess_*

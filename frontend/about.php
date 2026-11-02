@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Nexusolutions</title><meta name="description" content="Who we are, our mission and how we work."><link rel="stylesheet" href="css/style.css"></head>
-<body>
-<!-- Navigation bar (same on every page) -->
-<header class="navbar"><div class="container">
-  <a href="index.html" class="logo">Nexu<span>solutions</span></a>
-  <button id="menu-button" class="menu-button" aria-label="Open menu">Menu</button>
-  <ul id="nav-links" class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html" class="active">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.php">Contact</a></li><li><a href="login.html" class="nav-button">Login</a></li></ul>
-</div></header>
-<main>
+<?php
+// Uses the ONE shared navbar/footer (includes/header.php + footer.php).
+$page_title = 'About Us | Nexusolutions';
+$page_desc  = 'Who we are, our mission and how we work.';
+$active     = 'about';
+include 'includes/header.php';
+?>
 
 <section class="page-banner"><div class="container"><h1>About Us</h1></div></section>
 <section class="section"><div class="container about-intro">
@@ -26,9 +22,5 @@
 <div><h3>Build</h3><p>We create your project and share progress.</p></div>
 <div><h3>Deliver</h3><p>You review the result and we hand it over.</p></div>
 </div></div></section><section class="cta-strip"><div class="container"><h2>Ready to start your project?</h2><a href="contact.php" class="btn-primary">Contact Us</a></div></section>
-</main>
-<!-- Footer (same on every page) -->
-<footer class="footer"><div class="container"><span>&copy; 2026 Nexusolutions</span>
-<span><a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="contact.php">Contact</a></span></div></footer>
-<script src="js/script.js"></script>
-</body></html>
+
+<?php include 'includes/footer.php'; ?>

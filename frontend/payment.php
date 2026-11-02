@@ -1,6 +1,6 @@
 <?php
 // Shows the QR code and waits until the phone pays.
-session_start();
+include '../backend/session.php';
 include '../backend/db.php';
 include 'includes/pricing.php';
 
@@ -25,7 +25,7 @@ include 'includes/header.php';
 
     <?php if ($isPaid): ?>
       <div class="alert success">Payment received. Your project is now In Progress.</div>
-      <a href="index.html" class="btn-primary">Back to home</a>
+      <a href="index.php" class="btn-primary">Back to home</a>
     <?php else: ?>
       <div id="pay-area">
         <p style="margin:16px 0 8px">Scan this QR code with your phone camera.<br>Your phone must be on the same Wi-Fi as this computer.</p>
@@ -35,7 +35,7 @@ include 'includes/header.php';
       </div>
       <div id="paid-area" style="display:none">
         <div class="alert success">Payment received! Your project is now In Progress.</div>
-        <a href="index.html" class="btn-primary">Back to home</a>
+        <a href="index.php" class="btn-primary">Back to home</a>
       </div>
       <script src="js/qrcode.js"></script>
       <script src="js/payment.js"></script>

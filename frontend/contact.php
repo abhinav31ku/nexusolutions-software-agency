@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../backend/session.php';
 include '../backend/db.php';
 include 'includes/pricing.php';
 
@@ -16,7 +16,7 @@ if (isset($_POST['submit_inquiry'])) {
         $serviceType = trim($_POST['service_type']);
         $projectMessage = trim($_POST['message']);
 
-        if (!empty($serviceType) && !empty($projectMessage)) {
+        if (in_array($serviceType, service_names()) && !empty($projectMessage)) {
             try {
                 $insertInquiryQuery = $pdo->prepare(
                     "INSERT INTO inquiries (client_name, client_email, contact_no, service_type, message, amount, payment_token)
@@ -45,6 +45,7 @@ if (isset($_POST['submit_inquiry'])) {
 }
 
 $page_css = "contact.css";
+$active = "contact";
 include 'includes/header.php';
 ?>
 
@@ -71,10 +72,13 @@ include 'includes/header.php';
             <form action="contact.php" method="POST" class="contact-form">
                 <label>Select Service:</label>
                 <select name="service_type" required>
-                    <option value="Logo Design">Logo Design</option>
-                    <option value="Web Development">Web Development</option>
-                    <option value="Video Editing">Video Editing</option>
-                    <option value="General Consultation">General Consultation</option>
+                    <?php
+                    $chosen = $_GET['service'] ?? ($_POST['service_type'] ?? '');
+                    foreach (service_names() as $serviceName) {
+                        $selected = ($serviceName === $chosen) ? ' selected' : '';
+                        echo '<option value="' . htmlspecialchars($serviceName) . '"' . $selected . '>' . htmlspecialchars($serviceName) . '</option>';
+                    }
+                    ?>
                 </select>
 
                 <label>Project Details / Message:</label>
@@ -85,7 +89,7 @@ include 'includes/header.php';
         <?php else: ?>
             <div class="auth-prompt">
                 <p>You must be logged in to submit a project inquiry.</p>
-                <a href="login.php" class="btn-primary">Login to Continue</a>
+                <a href="login.html?next=contact.php" class="btn-primary">Login to Continue</a>
                 <a href="register.php" class="link-secondary">Create an Account</a>
             </div>
         <?php endif; ?>

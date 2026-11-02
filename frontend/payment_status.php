@@ -1,6 +1,6 @@
 <?php
 // Returns {"status":"Paid"} or {"status":"Unpaid"} for the logged-in owner of the inquiry.
-session_start();
+include '../backend/session.php';
 include '../backend/db.php';
 header('Content-Type: application/json');
 

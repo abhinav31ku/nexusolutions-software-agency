@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../backend/session.php';
 include '../backend/db.php';
 
 $errorMessage = "";
@@ -20,6 +20,7 @@ if (isset($_POST['login_btn'])) {
             );
 
             if ($passwordMatches) {
+                session_regenerate_id(true);   // fresh session id after login
                 $_SESSION['user_id'] = $foundUser['id'];
                 $_SESSION['username'] = $foundUser['username'];
                 $_SESSION['email'] = $foundUser['email'];
