@@ -16,7 +16,7 @@ NEXUSOLUTIONS  -  SOFTWARE AGENCY WEBSITE
 
   FRONTEND
     - Abhinav Kumar ........................ 2025KUEC2015
-    - Yogesh ................................ 2025KUEC2014
+    - Yogesh ............................... 2025KUEC2014
     - Kanika Chaudhary ..................... 2025KUEC2018
 
   DATABASE AND BACKEND
