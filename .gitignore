@@ -1,0 +1,12 @@
+# local settings and session files
+config/config.php
+sessions/
+
+# os and editor files
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
+
+# logs
+*.log

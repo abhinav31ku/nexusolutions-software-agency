@@ -1,0 +1,25 @@
+<?php
+require_once __DIR__ . '/../config/config.php';
+
+try {
+    $pdo = new PDO(
+        'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4',
+        DB_USER,
+        DB_PASS,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ]
+    );
+} catch (PDOException $e) {
+    error_log('Database connection failed: ' . $e->getMessage());
+    http_response_code(500);
+    exit('The site has a problem right now. Please try again later.');
+}
+
+// Log the real error, give the user a plain message.
+function db_error($e) {
+    error_log('Database error: ' . $e->getMessage());
+    return 'Something went wrong. Please try again.';
+}
